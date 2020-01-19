@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  googleAnalyticsKey: 'UA-153993477-1',
+  googleAnalyticsKey: 'UA-156468282-1',
+  // googleAnalyticsKey: 'UA-153993477-1',
   production: false
 };
 

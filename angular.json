@@ -59,18 +59,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "math-work:build"
+            "browserTarget": "Google-Analytics-Test:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "math-work:build:production"
+              "browserTarget": "Google-Analytics-Test:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "math-work:build"
+            "browserTarget": "Google-Analytics-Test:build"
           }
         },
         "test": {
@@ -107,15 +107,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "math-work:serve"
+            "devServerTarget": "Google-Analytics-Test:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "math-work:serve:production"
+              "devServerTarget": "Google-Analytics-Test:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "math-work"
+  "defaultProject": "Google-Analytics-Test"
 }
