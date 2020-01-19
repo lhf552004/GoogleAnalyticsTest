@@ -9,7 +9,7 @@ import { AnalyticsService } from '../shared/google-analytics/analytics.service';
 export class SubComponent implements OnInit {
 
   userId: string;
-
+  result: string;
   constructor(private analyticsService: AnalyticsService) {
     this.userId = this.analyticsService.userId;
    }
@@ -18,6 +18,7 @@ export class SubComponent implements OnInit {
   }
 
   sendSub() {
-    this.analyticsService.event('send',  { event_category: 'SubCategory', event_label: 'Sub_Test', value: 'Test Sub', user_id: this.userId });
+    this.analyticsService.event('send',  { event_category: 'SubCategory', event_label: 'Sub_Test', value: 'Test Sub' });
+    this.result = 'Sending event "Send", category: SubCategory, EventLabel: Sub_Test';
   }
 }

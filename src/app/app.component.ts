@@ -15,7 +15,7 @@ declare var gtag: Function;
 })
 export class AppComponent {
   closeResult: string;
-
+  result: string;
   userId: string;
 
   constructor(private route: ActivatedRoute, private router: Router, private analyticsService: AnalyticsService) {
@@ -30,7 +30,9 @@ export class AppComponent {
   }
 
   send() {
-    this.analyticsService.event('send', { event_category: 'Home', event_label: 'Test', value: 'Test haha', user_id: this.userId });
+    this.result = '';
+    this.analyticsService.event('send', { event_category: 'Home', event_label: 'Test', value: 'Test haha' });
+    this.result = 'Sending event "Send", category: Home, EventLabel: Test';
   }
 
   showSub() {

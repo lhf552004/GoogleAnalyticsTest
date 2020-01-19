@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Googld Analytics Multi-Users Simulation</h1>\r\n<input type=\"text\" [(ngModel)]=\"userId\">\r\n<button class=\"button\" (click)=\"setUserId()\">Set User Id</button>\r\n<br>\r\n<hr>\r\n<button class=\"button\" (click)=\"send()\">Send</button>\r\n<br>\r\n<hr>\r\n<button class=\"button\" (click)=\"showSub()\">Show Sub</button>\r\n\r\n<hr>\r\n\r\n<router-outlet></router-outlet>\r\n\r\n"
+module.exports = "<h1>Googld Analytics Multi-Users Simulation</h1>\r\n<input type=\"text\" [(ngModel)]=\"userId\">\r\n<button class=\"button\" (click)=\"setUserId()\">Set User Id</button>\r\n<br>\r\n<hr>\r\n<button class=\"button\" (click)=\"send()\">Send</button>\r\n<br>\r\n<label>{{result}}</label>\r\n<br>\r\n<hr>\r\n<button class=\"button\" (click)=\"showSub()\">Show Sub</button>\r\n\r\n<hr>\r\n\r\n<router-outlet></router-outlet>\r\n\r\n"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ module.exports = "<h1>Googld Analytics Multi-Users Simulation</h1>\r\n<input typ
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>sub works!</p>\n<button class=\"button\" (click)=\"sendSub()\">Send Sub</button>"
+module.exports = "<p>sub works!</p>\n<button class=\"button\" (click)=\"sendSub()\">Send Sub</button>\n<br>\n<label>{{result}}</label>"
 
 /***/ }),
 
@@ -129,7 +129,9 @@ let AppComponent = class AppComponent {
         this.analyticsService.setUserId();
     }
     send() {
-        this.analyticsService.event('send', { event_category: 'Home', event_label: 'Test', value: 'Test haha', user_id: this.userId });
+        this.result = '';
+        this.analyticsService.event('send', { event_category: 'Home', event_label: 'Test', value: 'Test haha' });
+        this.result = 'Sending event "Send", category: Home, EventLabel: Test';
     }
     showSub() {
         this.router.navigate(['sub'], { relativeTo: this.route });
@@ -326,7 +328,8 @@ let SubComponent = class SubComponent {
     ngOnInit() {
     }
     sendSub() {
-        this.analyticsService.event('send', { event_category: 'SubCategory', event_label: 'Sub_Test', value: 'Test Sub', user_id: this.userId });
+        this.analyticsService.event('send', { event_category: 'SubCategory', event_label: 'Sub_Test', value: 'Test Sub' });
+        this.result = 'Sending event "Send", category: SubCategory, EventLabel: Sub_Test';
     }
 };
 SubComponent.ctorParameters = () => [
